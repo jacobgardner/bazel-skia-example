@@ -1,0 +1,11 @@
+
+load("@bazel_skylib//rules:build_test.bzl", "build_test")
+load("@crate_index//:defs.bzl", "all_crate_deps")
+load("@rules_rust//rust:defs.bzl", "rust_binary")
+
+rust_binary(
+    name = "example",
+    srcs = glob(["src/**/*.rs"]),
+    edition = "2018",
+    deps = all_crate_deps(normal = True),
+)
